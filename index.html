@@ -3,16 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="animation.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>function myMove() {
+        let id = null;
+        const elem = document.getElementById("animation");
+        let pos = 0;
+        clearInterval(id);
+        id = setInterval(frame, 5);
+        function frame() {
+            if (pos == 350) {
+                clearInterval(id);
+            } else {
+                pos++;
+                elem.style.top = pos + 'px';
+                elem.style.left = pos + 'px';
+            }
+        }
+    }</script>
+    <style>#container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+    }
+    #animation {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background: red;
+    }</style>>
     <title>GitRepo3</title>
 </head>
 <body>
-    <h1>Commit Ex. 6</h1>
+    <h1>Commit Ex. 7</h1>
     <h2>Animation</h2>
     <div id="container>">
-        <div id="animation">animation will be here</div>
+        <div id="animation"></div>
     </div>
-    <button onclick="myMove()">Start</button>
+    <p><button onclick="myMove()">Start</button></p>
 </body>
 </html>
