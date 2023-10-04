@@ -1,6 +1,6 @@
 function myMove() {
     let id = null;
-    const elem = document.getElementById("animate");
+    const elem = document.getElementById("animation");
     let pos = 0;
     clearInterval(id);
     id = setInterval(frame, 5);
