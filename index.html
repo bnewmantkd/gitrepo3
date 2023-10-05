@@ -10,40 +10,53 @@
         #animate {
             width: 50px;
             height: 50px;
+            top: 175px;
             position: absolute;
             background-color: white;
             border-radius: 25px;
             text-align: center;
             color: black;
+            font-size: 14px;
         }
     </style>
     <body>
         <div id ="container">
-            <div id ="animate">Strange</div>
+            <div id ="animate"><br>Strange</div>
         </div>
-        <p><button onclick="myMove()">Start</button></p> 
+        <p><button onclick="start()">Start</button><button onclick="stop()">Stop</button></p> 
         <script>
-            function myMove() {
+            let pos = 0;
+            function start() {
                 let id = null;
                 const elem = document.getElementById("animate");
-                const cont = document.getElementById("container");   
-                let pos = 0;
-                clearInterval(id);
+                const cont = document.getElementById("container");
                 id = setInterval(frame, 5);
                 function frame() {
-                    if (pos >= 1.57) {
-                        elem.innerHTML = "Dark";
-                        elem.style.background = black;
-                        cont.style.background = white;
-                        elem.style.color = white;
+                    if (pos >= 6.28) {
+                        elem.innerHTML = "<br>Dark";
+                        elem.style.backgroundColor = "black";
+                        elem.style.color = "white";
+                        cont.style.backgroundColor = "white";
                         clearInterval(id);
                     } else {
                         pos+=0.01; 
-                        elem.style.top = 350*Math.sin(pos) + "px"; 
-                        elem.style.left = 350-350*Math.cos(pos) + "px";
-                        cont.style.border-radius = 15.92*pos + "px";
+                        elem.style.top = 175+175*Math.sin(pos) + "px";
+                        elem.style.left = 175-175*Math.cos(pos) + "px";
+                        cont.style.borderRadius = 31.85*pos + "px";
                     }
                 }
+            }
+            function stop() {
+                let id = null;
+                const elem = document.getElementById("animate");
+                const cont = document.getElementById("container");     
+                pos = 0;
+                elem.innerHTML = "<br>Strange";
+                elem.style.backgroundColor = "white";
+                elem.style.color = "black";
+                cont.style.backgroundColor = "black";
+                cont.style.borderRadius = 0 + "px";
+                clearInterval(id);
             }
         </script>
     </body>
