@@ -13,27 +13,35 @@
             position: absolute;
             background-color: white;
             border-radius: 25px;
+            text-align: center;
+            color: black;
         }
     </style>
     <body>
         <div id ="container">
-            <div id ="animate"></div>
+            <div id ="animate">Strange</div>
         </div>
         <p><button onclick="myMove()">Start</button></p> 
         <script>
             function myMove() {
                 let id = null;
-                const elem = document.getElementById("animate");   
+                const elem = document.getElementById("animate");
+                const cont = document.getElementById("container");   
                 let pos = 0;
                 clearInterval(id);
                 id = setInterval(frame, 5);
                 function frame() {
                     if (pos >= 1.57) {
+                        elem.innerHTML = "Dark";
+                        elem.style.background = black;
+                        cont.style.background = white;
+                        elem.style.color = white;
                         clearInterval(id);
                     } else {
                         pos+=0.01; 
                         elem.style.top = 350*Math.sin(pos) + "px"; 
-                        elem.style.left = 350-350*Math.cos(pos) + "px"; 
+                        elem.style.left = 350-350*Math.cos(pos) + "px";
+                        cont.style.border-radius = 15.92*pos + "px";
                     }
                 }
             }
